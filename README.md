@@ -1,5 +1,7 @@
 # Phrack RSS
 
+![License](https://img.shields.io/github/license/rmi7/phrack-rss.svg?style=flat-square)
+
 > Create RSS feed from Phrack.org
 
 The wonderful website [Phrack.org](http://phrack.org) does not have an RSS feed.
