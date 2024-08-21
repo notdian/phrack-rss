@@ -1,4 +1,3 @@
-const request = require('request-promise-any');
 const cheerio = require('cheerio');
 
 exports.convertToNumericDate = (() => {
@@ -38,4 +37,4 @@ exports.getSlug = str => str
 
 exports.isInArr = (arr, target) => arr.includes(target);
 
-exports.fetchPage = uri => request({ uri, transform: body => cheerio.load(body) });
+exports.fetchPage = uri => fetch(uri).then(r => r.text()).then(body => cheerio.load(body));

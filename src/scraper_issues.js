@@ -68,7 +68,7 @@ module.exports = async () => {
   const articles = [];
 
   /* eslint-disable no-restricted-syntax */
-  for (const issueNumber of newIssueNumbers) {
+  await Promise.all(newIssueNumbers.map(async (issueNumber) => {
     const fetchedIssue = await fetchPage(`${PHRACK_ISSUE_ARCHIVE_URL}${issueNumber}/`);
     const articleThumbs = parseIssuePage(issueNumber, fetchedIssue);
 
@@ -78,7 +78,9 @@ module.exports = async () => {
       console.log('added issue %d, article "%s"', articleInfo.issueNumber, articleInfo.title);
       articles.push(articleInfo);
     }
-  }
+  }));
+
+  articles.sort((a, b) => (a.issueNumber !== b.issueNumber ? a.issueNumber - b.issueNumber : a.articleNumber - b.articleNumber));
 
   /* eslint-enable no-restricted-syntax */
 

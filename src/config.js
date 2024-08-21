@@ -1,14 +1,11 @@
 const path = require('path');
 
 // settings
-exports.PORT = 8099;
-exports.RESCAN_INTERVAL = 10 * 1000; // 10 secs
 exports.FEED_LENGTH = 20;
 
 // file locations
 exports.DATA_DIR = path.join(__dirname, '..', 'data');
 exports.DB_FILE = path.join(exports.DATA_DIR, 'data.json');
-exports.FEED_ATOM_FILE = path.join(exports.DATA_DIR, 'feed.atom');
 exports.FEED_RSS_FILE = path.join(exports.DATA_DIR, 'feed.xml');
 
 // phrack

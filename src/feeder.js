@@ -1,5 +1,5 @@
-const Feed = require('feed');
-const { PHRACK_URL, PHRACK_LOGO_URL, FEED_ATOM_FILE, FEED_RSS_FILE } = require('./config');
+const { Feed } = require('feed');
+const { PHRACK_URL, PHRACK_LOGO_URL, FEED_RSS_FILE } = require('./config');
 const { convertToDate } = require('./helpers');
 const { writeFile } = require('./filesystem');
 const database = require('./database');
@@ -30,8 +30,5 @@ exports.recreate = async () => {
     });
   });
 
-  await Promise.all([
-    writeFile(FEED_ATOM_FILE, feed.render('atom-1.0')),
-    writeFile(FEED_RSS_FILE, feed.render('rss-2.0')),
-  ]);
+  await Promise.all([writeFile(FEED_RSS_FILE, feed.rss2())]);
 };

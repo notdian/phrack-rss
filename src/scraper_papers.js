@@ -1,7 +1,7 @@
 /* eslint-disable no-await-in-loop, no-loop-func, max-len */
 
 const { PHRACK_FIRST_PAPER_URL, PHRACK_PAPER_URL, PHRACK_AUTHOR_URL } = require('./config');
-const { fetchPage, isInArr, convertToNumericDate, getSlug } = require('./helpers');
+const { fetchPage, isInArr, convertToNumericDate } = require('./helpers');
 const database = require('./database');
 
 const parsePapersPage = $ => (
